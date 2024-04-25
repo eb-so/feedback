@@ -29,7 +29,7 @@ void main() {
     expect(mockHub.capturedFeedback?.name, 'foo');
     expect(mockHub.capturedFeedback?.email, 'bar@foo.de');
 
-    expect(mockHub.scope.attachements.length, 1);
+    expect(mockHub.scope.attachments.length, 1);
   });
 }
 
@@ -62,10 +62,52 @@ class MockHub implements Hub {
   // The following code is not used
 
   @override
-  void configureScope(ScopeCallback callback) {}
+  Future<void> addBreadcrumb(Breadcrumb crumb, {hint}) {
+    throw UnimplementedError();
+  }
 
   @override
-  void addBreadcrumb(Breadcrumb crumb, {hint}) {}
+  Future<SentryId> captureTransaction(SentryTransaction transaction,
+      {SentryTraceContextHeader? traceContext}) {
+    throw UnimplementedError();
+  }
+
+  @override
+  ISentrySpan? getSpan() {
+    throw UnimplementedError();
+  }
+
+  @override
+  SentryOptions get options => throw UnimplementedError();
+
+  @override
+  void setSpanContext(throwable, ISentrySpan span, String transaction) {}
+
+  @override
+  ISentrySpan startTransaction(String name, String operation,
+      {String? description,
+      DateTime? startTimestamp,
+      bool? bindToScope,
+      bool? waitForChildren,
+      Duration? autoFinishAfter,
+      bool? trimEnd,
+      OnTransactionFinish? onFinish,
+      Map<String, dynamic>? customSamplingContext}) {
+    throw UnimplementedError();
+  }
+
+  @override
+  ISentrySpan startTransactionWithContext(
+      SentryTransactionContext transactionContext,
+      {Map<String, dynamic>? customSamplingContext,
+      DateTime? startTimestamp,
+      bool? bindToScope,
+      bool? waitForChildren,
+      Duration? autoFinishAfter,
+      bool? trimEnd,
+      OnTransactionFinish? onFinish}) {
+    throw UnimplementedError();
+  }
 
   @override
   void bindClient(SentryClient client) {}
@@ -89,6 +131,11 @@ class MockHub implements Hub {
 
   @override
   Future<void> close() {
+    throw UnimplementedError();
+  }
+
+  @override
+  FutureOr<void> configureScope(ScopeCallback callback) {
     throw UnimplementedError();
   }
 

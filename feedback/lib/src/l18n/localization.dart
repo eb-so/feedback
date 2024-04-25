@@ -41,6 +41,6 @@ class FeedbackLocalization extends StatelessWidget {
 
 Locale get _defaultLocale {
   // Flutter 1.26 (2.0.1) returns `Locale?`, 1.27 `Locale`
-  final Locale? locale = WidgetsBinding.instance?.window.locale;
+  final Locale? locale = WidgetsBinding.instance.platformDispatcher.locale;
   return locale ?? const Locale('en', 'US');
 }

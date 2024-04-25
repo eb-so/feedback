@@ -8,6 +8,6 @@ Future<void> setGoldenImageSurfaceSize(WidgetTester tester) async {
   const double height = 896;
   const double pixelRation = 3;
 
-  tester.binding.window.devicePixelRatioTestValue = pixelRation;
+  tester.view.devicePixelRatio = pixelRation;
   await tester.binding.setSurfaceSize(const Size(width, height));
 }

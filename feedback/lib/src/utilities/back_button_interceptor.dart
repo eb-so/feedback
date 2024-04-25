@@ -9,14 +9,14 @@ class BackButtonInterceptor with WidgetsBindingObserver {
 
   void add(BoolCallback callback) {
     if (_callback == null) {
-      WidgetsBinding.instance!.addObserver(this);
+      WidgetsBinding.instance.addObserver(this);
     }
     _callback = callback;
   }
 
   void dispose() {
     _callback = null;
-    WidgetsBinding.instance!.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
   }
 
   @override

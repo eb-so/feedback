@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 import 'dart:typed_data';
 
@@ -181,7 +182,7 @@ class MyHomePage extends StatelessWidget {
               ElevatedButton(
                 child: const Text('Visit library page on pub.dev'),
                 onPressed: () {
-                  launch('https://pub.dev/packages/feedback');
+                  openLink('https://pub.dev/packages/feedback');
                 },
               ),
             ],
@@ -202,6 +203,14 @@ class MyHomePage extends StatelessWidget {
         },
       ),
     );
+  }
+
+  void openLink(String address) async {
+    final Uri url = Uri.parse(address);
+    if (!await launchUrl(url)) {
+      // Handle the error or notify the user
+      log('Could not launch $url');
+    }
   }
 }
 
