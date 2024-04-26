@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:cross_file/cross_file.dart';
 import 'package:example/feedback_functions.dart';
 import 'package:feedback/feedback.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -168,8 +169,8 @@ class MyHomePage extends StatelessWidget {
                       final screenshotFilePath =
                           await writeImageToStorage(feedback.screenshot);
 
-                      await Share.shareFiles(
-                        [screenshotFilePath],
+                      await Share.shareXFiles(
+                        [XFile(screenshotFilePath)],
                         text: feedback.text,
                       );
                     },
