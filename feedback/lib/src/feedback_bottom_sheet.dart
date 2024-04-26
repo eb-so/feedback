@@ -10,10 +10,15 @@ class FeedbackBottomSheet extends StatelessWidget {
     Key? key,
     required this.feedbackBuilder,
     required this.onSubmit,
+    this.borderRadius = const BorderRadius.only(
+      topLeft: Radius.circular(12),
+      topRight: Radius.circular(12),
+    ),
   }) : super(key: key);
 
   final FeedbackBuilder feedbackBuilder;
   final OnSubmit onSubmit;
+  final BorderRadius borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +30,12 @@ class FeedbackBottomSheet extends StatelessWidget {
     // the nested navigation in navigate mode works properly.
     return Navigator(
       onGenerateRoute: (_) => MaterialPageRoute<void>(
-        builder: (context) => Material(
-          color: FeedbackTheme.of(context).feedbackSheetColor,
-          child: feedbackBuilder(context, onSubmit),
+        builder: (context) => ClipRRect(
+          borderRadius: borderRadius,
+          child: Material(
+            color: FeedbackTheme.of(context).feedbackSheetColor,
+            child: feedbackBuilder(context, onSubmit),
+          ),
         ),
       ),
     );
