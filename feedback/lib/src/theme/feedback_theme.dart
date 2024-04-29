@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 const _defaultDrawColors = [
   Colors.red,
   Colors.green,
-  Colors.blue,
-  Colors.yellow,
 ];
 
 /// This is the same as `Colors.grey[50]`
