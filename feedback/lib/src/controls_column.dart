@@ -41,7 +41,7 @@ class ControlsColumn extends StatelessWidget {
     return Card(
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
-          Radius.circular(24),
+          Radius.circular(8),
         ),
       ),
       clipBehavior: Clip.antiAlias,
@@ -60,7 +60,12 @@ class ControlsColumn extends StatelessWidget {
             quarterTurns: 1,
             child: MaterialButton(
               key: const ValueKey<String>('navigate_button'),
-              child: Text(FeedbackLocalizations.of(context).navigate),
+              child: Text(
+                FeedbackLocalizations.of(context).navigate,
+                style: const TextStyle(
+                  fontFamily: 'Madera',
+                ),
+              ),
               onPressed: isNavigatingActive
                   ? null
                   : () => onControlModeChanged(FeedbackMode.navigate),
@@ -74,7 +79,12 @@ class ControlsColumn extends StatelessWidget {
             child: MaterialButton(
               key: const ValueKey<String>('draw_button'),
               minWidth: 20,
-              child: Text(FeedbackLocalizations.of(context).draw),
+              child: Text(
+                FeedbackLocalizations.of(context).draw,
+                style: const TextStyle(
+                  fontFamily: 'Madera',
+                ),
+              ),
               onPressed: isNavigatingActive
                   ? () => onControlModeChanged(FeedbackMode.draw)
                   : null,

@@ -47,7 +47,6 @@ class _MyAppState extends State<MyApp> {
       feedbackBuilder: _useCustomFeedback
           ? (context, onSubmit) => CustomFeedbackForm(
                 onSubmit: onSubmit,
-                scrollController: ScrollController(),
               )
           : null,
       theme: FeedbackThemeData(

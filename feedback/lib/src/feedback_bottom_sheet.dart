@@ -11,8 +11,8 @@ class FeedbackBottomSheet extends StatelessWidget {
     required this.feedbackBuilder,
     required this.onSubmit,
     this.borderRadius = const BorderRadius.only(
-      topLeft: Radius.circular(12),
-      topRight: Radius.circular(12),
+      topLeft: Radius.circular(8),
+      topRight: Radius.circular(8),
     ),
   }) : super(key: key);
 
