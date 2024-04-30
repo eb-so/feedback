@@ -93,6 +93,7 @@ class _CustomFeedbackFormState extends State<CustomFeedbackForm> {
   }
 
   void _handleSubmit() {
+    if (!mounted) return;
     setState(() => _isBusy.value = true);
     widget.onSubmit(
       _customFeedback.feedbackText ?? '',
