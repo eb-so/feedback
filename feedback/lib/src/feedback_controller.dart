@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:feedback/src/better_feedback.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +17,7 @@ class FeedbackController extends ChangeNotifier {
   /// After the user submitted his feedback [onFeedback] is called.
   /// If the user aborts the process of giving feedback, [onFeedback] is
   /// not called.
-  void show(OnFeedbackCallback onFeedback) {
+  FutureOr<void> show(OnFeedbackCallback onFeedback) {
     _isVisible = true;
     this.onFeedback = onFeedback;
     notifyListeners();
