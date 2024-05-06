@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 /// The function to be called when the user submits his feedback.
-typedef OnSubmit = void Function(
+typedef OnSubmit = FutureOr<void> Function(
   String feedback, {
   Map<String, dynamic>? extras,
 });
