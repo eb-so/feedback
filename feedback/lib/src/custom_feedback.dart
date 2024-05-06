@@ -106,6 +106,6 @@ class _CustomFeedbackFormState extends State<CustomFeedbackForm> {
     _isBusy.value = true;
     await widget.onSubmit(_customFeedback.feedbackText ?? '',
         extras: _customFeedback.toMap());
-    _isBusy.value = false;
+    // _isBusy.value = false;
   }
 }
