@@ -88,9 +88,11 @@ class _CustomFeedbackFormState extends State<CustomFeedbackForm> {
               borderRadius: BorderRadius.circular(8),
             ),
           ),
-          onPressed: () async {
-            await _handleSubmit();
-          },
+          onPressed: isBusy
+              ? null
+              : () async {
+                  await _handleSubmit();
+                },
           child: child,
         );
       },
