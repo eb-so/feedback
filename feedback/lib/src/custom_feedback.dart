@@ -1,17 +1,5 @@
-import 'dart:async';
-
 import 'package:feedback/feedback.dart';
 import 'package:flutter/material.dart';
-
-class CustomFeedback {
-  String? feedbackText;
-
-  CustomFeedback({this.feedbackText});
-
-  Map<String, dynamic> toMap() {
-    return {'Feedback': feedbackText};
-  }
-}
 
 class CustomFeedbackForm extends StatefulWidget {
   final OnSubmit onSubmit;
@@ -26,7 +14,7 @@ class CustomFeedbackForm extends StatefulWidget {
 }
 
 class _CustomFeedbackFormState extends State<CustomFeedbackForm> {
-  final CustomFeedback _customFeedback = CustomFeedback();
+  String? feedbackText;
   final ValueNotifier<bool> _isBusy = ValueNotifier(false);
 
   @override
@@ -72,7 +60,7 @@ class _CustomFeedbackFormState extends State<CustomFeedbackForm> {
       ),
       maxLines: 2,
       onChanged: (newFeedback) {
-        _customFeedback.feedbackText = newFeedback;
+        feedbackText = newFeedback;
       },
     );
   }
@@ -91,7 +79,9 @@ class _CustomFeedbackFormState extends State<CustomFeedbackForm> {
           onPressed: isBusy
               ? null
               : () async {
-                  await _handleSubmit();
+                  if (!mounted) return;
+                  _isBusy.value = true;
+                  await widget.onSubmit(feedbackText ?? '');
                 },
           child: child,
         );
@@ -99,13 +89,5 @@ class _CustomFeedbackFormState extends State<CustomFeedbackForm> {
       child: const Text('Submit',
           style: TextStyle(color: Colors.white, fontFamily: 'Madera')),
     );
-  }
-
-  FutureOr<void> _handleSubmit() async {
-    if (!mounted) return;
-    _isBusy.value = true;
-    await widget.onSubmit(_customFeedback.feedbackText ?? '',
-        extras: _customFeedback.toMap());
-    // _isBusy.value = false;
   }
 }
