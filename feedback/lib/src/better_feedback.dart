@@ -165,7 +165,7 @@ class _BetterFeedbackState extends State<BetterFeedback> {
                 mode: widget.mode,
                 pixelRatio: widget.pixelRatio,
                 feedbackBuilder:
-                    widget.feedbackBuilder ?? simpleFeedbackBuilder,
+                    widget.feedbackBuilder ?? defaultFeedbackBuilder,
               );
             },
           ),
@@ -179,4 +179,8 @@ class _BetterFeedbackState extends State<BetterFeedback> {
       feedbackVisible = controller.isVisible;
     });
   }
+}
+
+Widget defaultFeedbackBuilder(BuildContext context, OnSubmit onSubmit) {
+  return CustomFeedbackForm(onSubmit: onSubmit);
 }

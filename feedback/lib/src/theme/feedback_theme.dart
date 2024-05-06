@@ -23,7 +23,7 @@ class FeedbackThemeData {
   /// Creates a [FeedbackThemeData].
   /// ![Theme](https://raw.githubusercontent.com/ueman/feedback/master/img/theme_description.png "Theme")
   FeedbackThemeData({
-    this.background = Colors.grey,
+    this.background = const Color(0xffdb6d6c),
     this.feedbackSheetColor = _lightGrey,
     this.activeFeedbackModeColor = _blue,
     this.drawColors = _defaultDrawColors,
