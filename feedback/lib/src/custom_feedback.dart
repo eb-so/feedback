@@ -16,12 +16,10 @@ class CustomFeedbackForm extends StatefulWidget {
 class _CustomFeedbackFormState extends State<CustomFeedbackForm> {
   String? feedbackText;
   final ValueNotifier<bool> _isBusy = ValueNotifier(false);
-  final TextEditingController feedbackController = TextEditingController();
 
   @override
   void dispose() {
     _isBusy.dispose();
-    feedbackController.dispose();
     super.dispose();
   }
 
@@ -48,7 +46,6 @@ class _CustomFeedbackFormState extends State<CustomFeedbackForm> {
 
   Widget _buildFeedbackTextField() {
     return TextField(
-      controller: feedbackController,
       cursorColor: const Color(0xfff05423),
       decoration: const InputDecoration(
         contentPadding: EdgeInsets.all(12),
