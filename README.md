@@ -82,7 +82,7 @@ The following snippet is an example which :
  - sends the result to Sentry
  - shows a snackbar message  for either a success or a failure
 
- NB : If you use this class, you need to add the Interaction Listener at the appropraite level in your widget tree to handle three finger gesture detection.
+ NB : If you use this class, you need to add the Interaction Listener below BetterFeedback
 
 
 ```
