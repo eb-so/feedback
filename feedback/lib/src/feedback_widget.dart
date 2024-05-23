@@ -206,22 +206,24 @@ class FeedbackWidgetState extends State<FeedbackWidget>
                         .animate(animation),
                     child: Padding(
                       padding: const EdgeInsets.only(top: 24),
-                      child: FeedbackBottomSheet(
-                        feedbackBuilder: widget.feedbackBuilder,
-                        onSubmit: (
-                          String feedback, {
-                          Map<String, dynamic>? extras,
-                        }) async {
-                          await _sendFeedback(
-                            context,
-                            BetterFeedback.of(context).onFeedback!,
-                            screenshotController,
-                            feedback,
-                            widget.pixelRatio,
-                            extras: extras,
-                          );
-                          painterController.clear();
-                        },
+                      child: DefaultTextEditingShortcuts(
+                        child: FeedbackBottomSheet(
+                          feedbackBuilder: widget.feedbackBuilder,
+                          onSubmit: (
+                            String feedback, {
+                            Map<String, dynamic>? extras,
+                          }) async {
+                            await _sendFeedback(
+                              context,
+                              BetterFeedback.of(context).onFeedback!,
+                              screenshotController,
+                              feedback,
+                              widget.pixelRatio,
+                              extras: extras,
+                            );
+                            painterController.clear();
+                          },
+                        ),
                       ),
                     ),
                   ),
